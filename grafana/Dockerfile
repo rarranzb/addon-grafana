@@ -72,6 +72,12 @@ HEALTHCHECK \
 
 # Build arguments
 ARG BUILD_ARCH
+# Instalar el plugin panodata-map-panel
+RUN mkdir -p /var/lib/grafana/plugins && \
+    cd /var/lib/grafana/plugins && \
+    wget https://github.com/panodata/panodata-map-panel/releases/download/0.16.0/panodata-map-panel-0.16.0.zip && \
+    unzip panodata-map-panel-0.16.0.zip && \
+    rm panodata-map-panel-0.16.0.zip
 ARG BUILD_DATE
 ARG BUILD_DESCRIPTION
 ARG BUILD_NAME
